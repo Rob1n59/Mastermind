@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Mastermind JS</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; background: #f4f4f4; }
+    h1 { color: #333; }
+    #resultats { margin-top: 20px; padding: 10px; background: #fff; border: 1px solid #ccc; }
+    .tentative { margin: 5px 0; }
+  </style>
+</head>
+<body>
+  <h1>Jeu du Mastermind</h1>
+
+  <input type="text" id="proposition" placeholder="Entrez 4 chiffres (ex: 1234)" maxlength="4">
+
+  <button id="valider">Valider</button>
+
+  <div id="resultats">
+    <h2>Historique des tentatives</h2>
+    <div id="historique"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
