@@ -2,25 +2,26 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Mastermind en JavaScript</title>
+  <title>Mastermind</title>
   <style>
     body {
       margin: 0;
       height: 100vh;
       display: flex;
-      justify-content: center;   /* centre horizontalement */
-      align-items: center;       /* centre verticalement */
-      background: #f4f4f4;
+      justify-content: center;
+      align-items: center;
+      background: #fff; 
       font-family: Arial, sans-serif;
     }
 
     .container {
       background: #fff;
       padding: 30px;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      text-align: center; /* centre le texte à l’intérieur */
-      width: 300px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      text-align: center;
+      width: 350px;
+      max-width: 90%;
     }
 
     h1 {
@@ -28,39 +29,85 @@
       color: #333;
     }
 
-    input {
-      margin-bottom: 10px;
-      padding: 8px;
+    select, input, button {
+      margin: 10px 0;
+      padding: 10px;
       width: 100%;
-      box-sizing: border-box;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 14px;
     }
 
     button {
-      padding: 8px 16px;
-      margin-bottom: 20px;
+      background: #4CAF50;
+      color: white;
+      border: none;
       cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #45a049;
     }
 
     #resultats {
-      text-align: left; /* pour que l’historique reste lisible */
+      margin-top: 20px;
+      text-align: left;
       font-size: 14px;
     }
 
     .tentative {
       margin: 5px 0;
+      padding: 5px;
+      background: #f9f9f9;
+      border-radius: 4px;
+    }
+
+    #jeu {
+      display: none;
+    }
+
+    #retourMenu {
+      background: #f44336;
+      margin-top: 15px;
+    }
+
+    #retourMenu:hover {
+      background: #d32f2f;
     }
   </style>
 </head>
 <body>
-  <div class="container">
+
+  <div class="container" id="config">
+    <h1>Configurer la partie</h1>
+    <label>Longueur de la combinaison :</label>
+    <select id="longueur">
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+    </select>
+    <label>Chiffres possibles (1 à N) :</label>
+    <select id="plage">
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+    </select>
+    <button id="commencer">Commencer</button>
+  </div>
+
+  <div class="container" id="jeu">
     <h1>Jeu du Mastermind</h1>
-    <input type="text" id="proposition" placeholder="Entrez 4 chiffres (1-6)" maxlength="4">
+    <input type="text" id="proposition" placeholder="Entrez votre combinaison">
     <button id="valider">Valider</button>
     <div id="resultats">
       <h2>Historique des tentatives</h2>
       <div id="historique"></div>
     </div>
+    <button id="retourMenu">Revenir au menu</button>
   </div>
+
   <script src="script.js"></script>
 </body>
 </html>
