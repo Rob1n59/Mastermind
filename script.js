@@ -12,17 +12,20 @@ let essais = 0;
 function verifierProposition(proposition, secret) {
   let bienPlaces = 0;
   let malPlaces = 0;
+
   let secretArray = secret.split("");
   let propArray = proposition.split("");
+
   for (let i = 0; i < 4; i++) {
     if (propArray[i] === secretArray[i]) {
       bienPlaces++;
       secretArray[i] = null;
-      propArray[i] = undefined;
+      propArray[i] = null;
     }
   }
+
   for (let i = 0; i < 4; i++) {
-    if (propArray[i] !== undefined) {
+    if (propArray[i] !== null) {
       let index = secretArray.indexOf(propArray[i]);
       if (index !== -1) {
         malPlaces++;
@@ -30,8 +33,10 @@ function verifierProposition(proposition, secret) {
       }
     }
   }
+
   return { bienPlaces, malPlaces };
 }
+
 
 document.getElementById("valider").addEventListener("click", function() {
   let proposition = document.getElementById("proposition").value;
@@ -43,7 +48,7 @@ document.getElementById("valider").addEventListener("click", function() {
   let resultat = verifierProposition(proposition, combinaisonSecrete);
   let historique = document.getElementById("historique");
   let div = document.createElement("div");
-  div.textContent = `Tentative ${essais} : ${proposition} → ${resultat.bienPlaces} bien placé(s), ${resultat.malPlaces} mal placé(s).`;
+  div.textContent = `Tentative ${essais} : ${proposition} → ${resultat.bienPlaces} bien placé, ${resultat.malPlaces} mal placé.`;
   historique.appendChild(div);
   if (resultat.bienPlaces === 4) {
     alert("Bravo 🎉 ! Vous avez trouvé la combinaison !");
