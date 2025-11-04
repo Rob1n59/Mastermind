@@ -20,7 +20,7 @@ document.getElementById("valider").addEventListener("click", function() {
 
   essaisRestants--;
   if (resultat.bienPlaces === 4) {
-    alert("Bravo ! Vous avez trouvé la combinaison secrète 🎉");
+    alert("Bravo ! Vous avez trouvé la combinaison secrète");
     document.getElementById("valider").disabled = true;
   } else if (essaisRestants === 0) {
     alert("Dommage ! La combinaison était : " + combinaisonSecrete);
