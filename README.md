@@ -35,7 +35,7 @@ Deux modes de jeu sont disponibles :
 3. **Écran 2** : définir la **difficulté** (longueur de la combinaison et nombre de chiffres/couleurs possibles).  
 4. **Écran 3** : **jouer**.  
    - En **mode chiffres** : saisir la combinaison dans le champ prévu.  
-   - En **mode couleurs** : cliquer sur les pastilles pour composer la combinaison.  
+   - En **mode couleurs** : cliquer sur les pastilles pour composer la combinaison, puis cliquer sur les pastilles sélectionné pour les effacer de la tentative  
 5. **Cliquer sur “Valider”** pour soumettre la tentative.  
 6. L’**historique** affiche la proposition et le résultat.  
 7. Continuer jusqu’à **trouver la combinaison** ou **atteindre la limite d’essais**.  

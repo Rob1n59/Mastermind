@@ -53,12 +53,14 @@ function verifierProposition(proposition, secret) {
 
 document.getElementById("modeChiffres").addEventListener("click", () => {
   mode = "chiffres";
+  document.getElementById("labelPlage").textContent = "Combien de chiffres possibles ?";
   document.getElementById("menuPrincipal").style.display = "none";
   document.getElementById("config").style.display = "block";
 });
 
 document.getElementById("modeCouleurs").addEventListener("click", () => {
   mode = "couleurs";
+  document.getElementById("labelPlage").textContent = "Combien de couleurs possibles ?";
   document.getElementById("menuPrincipal").style.display = "none";
   document.getElementById("config").style.display = "block";
 });
@@ -114,6 +116,8 @@ document.getElementById("valider").addEventListener("click", () => {
   }
 
   traiterTentative(proposition);
+
+  document.getElementById("proposition").value = "";
 });
 
 function genererPalette(nbCouleurs) {
@@ -134,6 +138,10 @@ function ajouterCouleur(couleur) {
     let div = document.createElement("div");
     div.classList.add("pastille");
     div.style.background = couleur;
+    div.addEventListener("click", () => {
+      zone.removeChild(div);
+    });
+
     zone.appendChild(div);
   }
 }

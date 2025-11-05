@@ -3,125 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <title>Mastermind</title>
-  <style>
-    body {
-      margin: 0;
-      height: 100vh;
-      display: flex;
-      flex-direction: column; 
-      justify-content: center;
-      align-items: center;
-      background: #fff;
-      font-family: Arial, sans-serif;
-    }
-
-    .top-buttons {
-      margin-bottom: 20px;
-    }
-
-    .top-buttons button {
-      margin: 0 5px;
-      padding: 8px 16px;
-      border-radius: 5px;
-      border: none;
-      cursor: pointer;
-      background: #f44336;
-      color: white;
-      transition: 0.3s;
-    }
-
-    .top-buttons button:hover {
-      background: #7e0000;
-    }
-
-    .container {
-      background: #fff;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-      text-align: center;
-      width: 500px;
-      max-width: 90%;
-    }
-    
-    h1 {
-      margin-bottom: 20px;
-      color: #333;
-    }
-
-    select, input, button {
-      margin: 10px 0;
-      padding: 10px;
-      width: 100%;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-      font-size: 14px;
-    }
-
-    button {
-      background: #4CAF50;
-      color: white;
-      border: none;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-
-    button:hover {
-      background: #45a049;
-    }
-
-    #resultats {
-      margin-top: 20px;
-      text-align: left;
-      font-size: 14px;
-    }
-
-    .tentative {
-      margin: 15px 0;
-      padding: 5px;
-      background: #f9f9f9;
-      border-radius: 4px;
-    }
-
-    .tentative-combinaison {
-      margin-bottom: 5px;
-    }
-
-    .tentative-resultat {
-      font-size: 13px;
-      color: #555;
-    }
-    #config, #jeu {
-      display: none;
-    }
-
-    #retourMenu, #retourConfig {
-      background: #f44336;
-      margin-top: 15px;
-    }
-
-    #retourMenu:hover, #retourConfig:hover {
-      background: #910000;
-    }
-
-    .pastille {
-      width: 30px;
-      height: 30px;
-      border-radius: 50%;
-      display: inline-block;
-      margin: 5px;
-      cursor: pointer;
-      border: 2px solid #333;
-    }
-
-    #palette, #propositionCouleurs {
-      margin: 10px 0;
-    }
-  </style>
 </head>
+<link rel="stylesheet" href="style.css">
 <body>
-
   <div class="container" id="menuPrincipal">
+    <h1 class="welcome-title">Bienvenue !</h1>
     <h1>Choisissez votre mode de jeu Mastermind</h1>
     <button id="modeChiffres">Mastermind Chiffres</button>
     <button id="modeCouleurs">Mastermind Couleurs</button>
@@ -135,13 +21,14 @@
       <option value="5">5</option>
       <option value="6">6</option>
     </select>
-    <label>Combien de chiffres/couleurs possibles ? :</label>
+    <label id="labelPlage">Combien de chiffres/couleurs possibles ? :</label>
     <select id="plage">
-      <option value="6">6</option>
-      <option value="7">7</option>
-      <option value="8">8</option>
-      <option value="9">9</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
     </select>
+
     <button id="commencer">Commencer</button>
     <button id="retourMenuPrincipal">Revenir au menu principal</button>
   </div>
