@@ -8,10 +8,30 @@
       margin: 0;
       height: 100vh;
       display: flex;
+      flex-direction: column; 
       justify-content: center;
       align-items: center;
-      background: #fff; 
+      background: #fff;
       font-family: Arial, sans-serif;
+    }
+
+    .top-buttons {
+      margin-bottom: 20px;
+    }
+
+    .top-buttons button {
+      margin: 0 5px;
+      padding: 8px 16px;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+      background: #f44336;
+      color: white;
+      transition: 0.3s;
+    }
+
+    .top-buttons button:hover {
+      background: #7e0000;
     }
 
     .container {
@@ -20,10 +40,10 @@
       border-radius: 10px;
       box-shadow: 0 4px 15px rgba(0,0,0,0.2);
       text-align: center;
-      width: 350px;
+      width: 500px;
       max-width: 90%;
     }
-
+    
     h1 {
       margin-bottom: 20px;
       color: #333;
@@ -57,37 +77,65 @@
     }
 
     .tentative {
-      margin: 5px 0;
+      margin: 15px 0;
       padding: 5px;
       background: #f9f9f9;
       border-radius: 4px;
     }
 
-    #jeu {
+    .tentative-combinaison {
+      margin-bottom: 5px;
+    }
+
+    .tentative-resultat {
+      font-size: 13px;
+      color: #555;
+    }
+    #config, #jeu {
       display: none;
     }
 
-    #retourMenu {
+    #retourMenu, #retourConfig {
       background: #f44336;
       margin-top: 15px;
     }
 
-    #retourMenu:hover {
-      background: #d32f2f;
+    #retourMenu:hover, #retourConfig:hover {
+      background: #910000;
+    }
+
+    .pastille {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: inline-block;
+      margin: 5px;
+      cursor: pointer;
+      border: 2px solid #333;
+    }
+
+    #palette, #propositionCouleurs {
+      margin: 10px 0;
     }
   </style>
 </head>
 <body>
 
+  <div class="container" id="menuPrincipal">
+    <h1>Choisissez votre mode de jeu Mastermind</h1>
+    <button id="modeChiffres">Mastermind Chiffres</button>
+    <button id="modeCouleurs">Mastermind Couleurs</button>
+  </div>
+
   <div class="container" id="config">
-    <h1>Configurer la partie</h1>
+    <h1>Difficulté de la partie</h1>
     <label>Longueur de la combinaison :</label>
     <select id="longueur">
       <option value="4">4</option>
       <option value="5">5</option>
       <option value="6">6</option>
     </select>
-    <label>Chiffres possibles (1 à N) :</label>
+    <label>Combien de chiffres/couleurs possibles ? :</label>
     <select id="plage">
       <option value="6">6</option>
       <option value="7">7</option>
@@ -95,17 +143,30 @@
       <option value="9">9</option>
     </select>
     <button id="commencer">Commencer</button>
+    <button id="retourMenuPrincipal">Revenir au menu principal</button>
   </div>
 
   <div class="container" id="jeu">
-    <h1>Jeu du Mastermind</h1>
-    <input type="text" id="proposition" placeholder="Entrez votre combinaison">
-    <button id="valider">Valider</button>
+    <h1 id="titreJeu">Jeu du Mastermind</h1>
+
+    <div id="zoneChiffres">
+      <input type="text" id="proposition" placeholder="Entrez votre combinaison">
+      <button id="valider">Valider</button>
+    </div>
+
+    <div id="zoneCouleurs" style="display:none;">
+      <div id="palette"></div>
+      <div id="propositionCouleurs"></div>
+      <button id="validerCouleurs">Valider</button>
+    </div>
+
     <div id="resultats">
-      <h2>Historique des tentatives</h2>
+      <h2>Historique des tentatives:</h2>
       <div id="historique"></div>
     </div>
-    <button id="retourMenu">Revenir au menu</button>
+
+    <button id="retourConfig">Revenir au choix de difficulté</button>
+    <button id="retourMenu">Revenir au menu principal</button>
   </div>
 
   <script src="script.js"></script>
