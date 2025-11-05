@@ -30,7 +30,7 @@ Deux modes de jeu sont disponibles :
 ---
 
 ##  Utilisation
-1. **Ouvrir** `index.html` dans un navigateur.  
+1. **Se connecter** sur **192.168.100.14** et cliquer sur **tpmastermind**.  
 2. **Écran 1** : choisir le **mode de jeu** (Chiffres ou Couleurs).  
 3. **Écran 2** : définir la **difficulté** (longueur de la combinaison et nombre de chiffres/couleurs possibles).  
 4. **Écran 3** : **jouer**.  
